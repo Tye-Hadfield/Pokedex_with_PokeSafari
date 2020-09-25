@@ -23,25 +23,18 @@ require 'smarter_csv'
 
         select_pokemon = data.select {|hash| hash[:pokedexnumber] == user_choice }[0]
 
-        p select_pokemon
+        puts "Pokedex Number - #{select_pokemon[:pokedexnumber]}"
+        puts "Name - #{select_pokemon[:name]}"
+        puts "type(s) - #{select_pokemon[:type_1]} #{select_pokemon[:type_2]}"
+        puts "HP stats - #{select_pokemon[:hp]}"
+        puts "Attack stats - #{select_pokemon[:attack]}"
+        puts "Defense stats - #{select_pokemon[:defense]}"
+        puts "SP_Atk stats - #{select_pokemon[:sp_atk]}"
+        puts "SP_Def stats - #{select_pokemon[:sp_def]}"
+        puts "Speed stats - #{select_pokemon[:speed]}"
+        puts "Generation - #{select_pokemon[:generation]}"
 
 
-
-        # user_choice = user_choice - 1
-
-        # puts data[user_choice]
-
-
-
-        # data.each do |pokemon|
-        #     if pokemon[:name] =="Mew"
-        #         puts pokemon[20]
-        #     end
-        # end
-
-        
     end
-
-# end
 
 callPokemonTest
