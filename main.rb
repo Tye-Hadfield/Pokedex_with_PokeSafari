@@ -15,13 +15,17 @@ require 'smarter_csv'
     
         data = SmarterCSV.process('pokemon.csv',{header_transformations:[:none]})
 
-        # p data
+        user_answer = true
+
+        while user_answer == true
 
         puts "Choose number between 1-151"
 
         user_choice = gets.chomp.to_i
 
         select_pokemon = data.select {|hash| hash[:pokedexnumber] == user_choice }[0]
+
+        puts "****************************************************************"
 
         puts "Pokedex Number - #{select_pokemon[:pokedexnumber]}"
         puts "Name - #{select_pokemon[:name]}"
@@ -34,7 +38,23 @@ require 'smarter_csv'
         puts "Speed stats - #{select_pokemon[:speed]}"
         puts "Generation - #{select_pokemon[:generation]}"
 
+        puts "****************************************************************"
 
+        puts "Would you like to search another Pokemon?"
+        
+         run_again = gets.chomp.to_s.capitalize
+        
+
+            if run_again == "No"
+               user_answer = false
+                puts "****************************************************************"
+                puts "Thank you for using the Pokedex!!"
+            elsif
+                run_again == "Yes"
+                user_answer = true
+                puts "****************************************************************"
+            end
+        end
     end
 
 callPokemonTest
