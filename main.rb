@@ -39,12 +39,12 @@ require 'smarter_csv'
          run_again = gets.chomp.to_s.capitalize
         
 
-            if run_again == "No"
+            if run_again == "No" || run_again == "N"
                user_answer = false
                 puts "****************************************************************"
                 puts "Thank you for using the Pokedex!!"
             elsif
-                run_again == "Yes"
+                run_again == "Yes" || run_again == "Y"
                 user_answer = true
                 puts "****************************************************************"
             end
@@ -94,14 +94,15 @@ require 'smarter_csv'
          run_again = gets.chomp.to_s.capitalize
         
 
-            if run_again == "No"
-               user_answer = false
-                puts "****************************************************************"
-                puts "Thank you for using the Pokedex!!"
-            elsif
-                run_again == "Yes"
-                user_answer = true
-                puts "****************************************************************"
+         if run_again == "No" || run_again == "N"
+            user_answer = false
+             puts "****************************************************************"
+             puts "Thank you for using the Pokedex!!"
+         elsif
+             run_again == "Yes" || run_again == "Y"
+             user_answer = true
+             puts "****************************************************************"
+            
             end
         end
     end
@@ -121,6 +122,9 @@ puts "How would you like to search the Pokedex, Name or Pokedex number?"
 how_to_search = gets.chomp.to_s.capitalize
 
 if how_to_search == "Pokedex number"
+    puts "****************************************************************"
+    pokemonTestPokeDexNumer
+elsif how_to_search == "Number"
     puts "****************************************************************"
     pokemonTestPokeDexNumer
 elsif how_to_search == "Name"

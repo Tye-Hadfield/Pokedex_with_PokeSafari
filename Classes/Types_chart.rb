@@ -1,5 +1,34 @@
  #This is the types and what their Strength and weakness are (Move to class when got time)
-             
+            
+class PokemonTypes
+
+        attr_reader : :grass, :poison, :dragon, :ghost, :ice, :steel, :rock, :fighting, :psychic, :fairy, :ground, :electric, :normal, :bug, :water, :flying, :fire
+
+        def Initialize
+        @grass = grass
+        @poison = poison
+        @dragon = dragon
+        @ghost = ghost
+        @ice = ice
+        @steel = steel
+        @rock = rock
+        @fighting = fighting
+        @psychic = psychic
+        @fairy = fairy
+        @ground = ground
+        @electric = electric
+        @normal = normal
+        @bug = bug 
+        @water = water
+        @flying = flying
+        @fire = fire
+        end
+
+end
+
+
+
+
         
 grass = {
 attack_super_effective: "Grass moves are super-effective against: WATER GROUND ROCK",

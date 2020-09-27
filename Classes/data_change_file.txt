@@ -1,0 +1,2 @@
+        :grass, :poison, :dragon, :ghost, :ice, :steel, :rock, :fighting, :psychic, :fairy, :ground, :electric, :normal, :bug, :water, :flying, :fire
+        
