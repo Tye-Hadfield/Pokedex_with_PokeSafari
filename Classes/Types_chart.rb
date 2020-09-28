@@ -31,11 +31,19 @@ class PokemonTypes
         end
 
         def output_attack_no_effect
-            puts "#{@name} moves have no effect on: #{@attack_no_effect}"
+            if @attack_no_effect == false
+                return
+            else
+                puts "#{@name} moves have no effect on: #{@attack_no_effect}"
+            end
         end
 
         def output_defense_no_effect
+            if @defense_no_effect == false
+                return
+            else
             puts "These types have no effect on #{@name} Pokémon: #{@defense_no_effect}"
+            end
         end
 
         def output_all
@@ -69,4 +77,4 @@ types.push PokemonTypes.new("Water","FIRE GROUND ROCK","WATER GRASS DRAGON","FIR
 types.push PokemonTypes.new("Flying","GRASS FIGHTING BUG","ELECTRIC ROCK STEEL","GRASS FIGHTING BUG","ELECTRIC ICE ROCK",false,"GROUND")
 types.push PokemonTypes.new("Fire","GRASS ICE BUG STEEL","FIRE WATER ROCK DRAGON","FIRE GRASS ICE BUG STEEL FAIRY","WATER GROUND ROCK")
 
-types[4].output_all
+types[5].output_all
