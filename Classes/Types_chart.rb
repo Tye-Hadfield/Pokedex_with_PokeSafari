@@ -1,262 +1,72 @@
  #This is the types and what their Strength and weakness are (Move to class when got time)
             
 class PokemonTypes
+       
 
-        attr_reader :grass, :poison, :dragon, :ghost, :ice, :steel, :rock, :fighting, :psychic, :fairy, :ground, :electric, :normal, :bug, :water, :flying, :fire
+        def initialize(name,attack_super_effective,attack_not_super_effective,defence_not_very_effective,defence_super_very_effective, attack_no_effect = false, defense_no_effect = false)
+            @name = name
+            @attack_super_effective = attack_super_effective
+            @attack_not_super_effective = attack_not_super_effective
+            @defence_not_very_effective = defence_not_very_effective
+            @defence_super_very_effective = defence_super_very_effective
+            @attack_no_effect = attack_no_effect
+            @defense_no_effect = defense_no_effect
 
-
-        def initialize
-        @grass = grass
-        @poison = poison
-        @dragon = dragon
-        @ghost = ghost
-        @ice = ice
-        @steel = steel
-        @rock = rock
-        @fighting = fighting
-        @psychic = psychic
-        @fairy = fairy
-        @ground = ground
-        @electric = electric
-        @normal = normal
-        @bug = bug 
-        @water = water
-        @flying = flying
-        @fire = fire
         end
 
-        def grass_Type
-                grass = {
-                        attack_super_effective: "Grass moves are super-effective against: WATER GROUND ROCK",
-                        attack_not_super_effective: "Grass moves are not very effective against: FIRE GRASS POISON FLYING BUG DRAGON STEEL",
-                        defence_not_very_effective: "These types are not very effective against Grass Pokémon: WATER ELECTRIC GRASS GROUND",
-                        defence_super_very_effective: "These types are super-effective against Grass Pokémon: FIRE ICE POISON FLYING BUG"
-                        }
-
-                grass.each do |key, values|
-                        puts values
-                end
+        def output_effective_against
+            puts "#{@name} moves are super-effective against: #{@attack_super_effective}"
         end
 
-        def poison_Type
-                poison = {
-                        attack_super_effective: "Poison moves are super-effective against : GRASS FAIRY",
-                        attack_not_super_effective: "Poison moves are not very effective against : POISON GROUND ROCK GHOST",
-                        attack_no_effect: "Poison moves have no effect on : STEEL",
-                        defence_not_very_effective: "These types are not very Effective against Poison Pokémon : GRASS FIGHTING POISON BUG FAIRY",
-                        defence_super_very_effective: "These types are super-effective against Poison Pokémon : GROUND PSYCHIC"
-                        }
-
-                poison.each do |key, values|
-                        puts values
-                end
+        def output_not_effective_against
+            puts "#{@name} moves are not very effective against: #{@attack_not_super_effective}"
         end
 
-        
-        def dragon_Type
-                dragon = {
-                        attack_super_effective: "Dragon moves are super-effective against : DRAGON",
-                        attack_not_super_effective: "Dragon moves are not very effective against : STEEL",
-                        attack_no_effect: "Dragon moves have no effect on : FAIRY",
-                        defence_not_very_effective: "These types are not very Effective against Dragon Pokémon : FIRE WATER ELECTRIC GRASS",
-                        defence_super_very_effective: "These types are super-effective against Dragon Pokémon : ICE DRAGON FAIRY"
-                        }
-                
-                dragon.each do |key, values|
-                        puts values
-                end
+        def output_defence_not_very_effective
+            puts "These types are not very effective against #{@name} Pokémon: #{@defence_not_very_effective}"
         end
 
-        def ghost_Type
-                ghost = {
-                        attack_super_effective: "Ghost moves are super-effective against : PSYCHIC GHOST",
-                        attack_not_super_effective: "Ghost moves are not very effective against : DARK",
-                        attack_no_effect: "Ghost moves have no effect on : NORMAL",
-                        attack_no_effect_aginst: "These types have no effect on Ghost Pokémon: NORMAL FIGHTING",
-                        defence_not_very_effective: "These types are not very Effective against Ghost Pokémon : POISON BUG",
-                        defence_super_very_effective: "These types are super-effective against Ghost Pokémon : GHOST DARK"
-                        }
-
-                ghost.each do |key, values|
-                        puts values
-                end
+        def output_defence_super_very_effective
+            puts "These types are super-effective against #{@name} Pokémon: #{@defence_super_very_effective}"
         end
 
-        def ice_Type
-                ice = {
-                        attack_super_effective: "Ice moves are super-effective against: GRASS GROUND FLYING DRAGON",
-                        attack_not_super_effective: "Ice moves are not very effective against: FIRE WATER ICE STEEL",
-                        defence_not_very_effective: "These types are not very effective against Ice Pokémon: ICE",
-                        defence_super_very_effective: "These types are super-effective against Ice Pokémon: FIRE FIGHTING ROCK STEEL" 
-                        }
-
-                ice.each do |key, values|
-                        puts values
-                end
+        def output_attack_no_effect
+            puts "#{@name} moves have no effect on: #{@attack_no_effect}"
         end
 
-        def steel_Type
-                steel = {
-                        attack_super_effective: "Steel moves are super-effective against : ICE ROCK FAIRY",
-                        attack_not_super_effective: "Steel moves are not very effective against : FIRE WATER ELECTRIC STEEL",
-                        attack_no_effect_aginst: "These types have no effect on Steel Pokémon: POISON",
-                        defence_not_very_effective: "These types are not very Effective against Steel Pokémon : NORMAL GRASS ICE FLYING PSYCHIC BUG ROCK DRAGON STEEL FAIRY",
-                        defence_super_very_effective: "These types are super-effective against Steel Pokémon : FIRE FIGHTING GROUND"
-                        }
-                
-                steel.each do |key, values|
-                        puts values
-                end
+        def output_defense_no_effect
+            puts "These types have no effect on #{@name} Pokémon: #{@defense_no_effect}"
         end
 
-        def rock_Type
-                rock = {
-                        attack_super_effective: "Rock moves are super-effective against: FIRE ICE FLYING BUG",
-                        attack_not_super_effective: "Rock moves are not very effective against: FIGHTING GROUND STEEL",
-                        defence_not_very_effective: "These types are not very effective against Rock Pokémon: NORMAL FIRE POISON FLYING",
-                        defence_super_very_effective: "These types are super-effective against Rock Pokémon: WATER GRASS FIGHTING GROUND STEEL" 
-                        }
+        def output_all
+    
+            output_effective_against
+            output_not_effective_against
+            output_defence_not_very_effective
+            output_defence_super_very_effective
+            output_attack_no_effect
+            output_defense_no_effect
 
-                rock.each do |key, values|
-                        puts values
-                end
         end
-
-        def fighting_Type
-                fighting = {
-                        attack_super_effective: "Fighting moves are super-effective against : NORMAL ICE ROCK DARK STEEL",
-                        attack_not_super_effective: "Fighting moves are not very effective against : POISON FLYING PSYCHIC BUG FAIRY",
-                        attack_no_effect: "Fighting moves have no effect on : GHOST",
-                        defence_not_very_effective: "These types are not very Effective against Fighting Pokémon : BUG ROCK DARK",
-                        defence_super_very_effective: "These types are super-effective against Fighting Pokémon : FLYING PSYCHIC FAIRY"
-                        }
-
-                fighting.each do |key, values|
-                        puts values
-                end
-        end
-
-        def psychic_Type
-                psychic = {
-                        attack_super_effective: "Psychic moves are super-effective against : FIGHTING POISON",
-                        attack_not_super_effective: "Psychic moves are not very effective against : PSYCHIC STEEL",
-                        attack_no_effect: "Psychic moves have no effect on : DARK",
-                        defence_not_very_effective: "These types are not very Effective against Psychic Pokémon : FIGHTING PSYCHIC",
-                        defence_super_very_effective: "These types are super-effective against Psychic Pokémon : BUG GHOST DARK"
-                        }
-
-                psychic.each do |key, values|
-                        puts values
-                end
-        end
-
-        def fairy_Type
-                fairy = {
-                        attack_super_effective: "Fairy moves are super-effective against : FIGHTING DRAGON DARK",
-                        attack_not_super_effective: "Fairy moves are not very effective against : FIRE POISON STEEL",
-                        attack_no_effect_aginst: "These types have no effect on Fairy Pokémon: DRAGON",
-                        defence_not_very_effective: "These types are not very Effective against Fairy Pokémon : FIGHTING BUG DARK",
-                        defence_super_very_effective: "These types are super-effective against Fairy Pokémon : POISON STEEL"
-                        }
-
-                fairy.each do |key, values|
-                        puts values
-                end
-        end
-
-        def ground_Type
-                ground = {
-                        attack_super_effective: "Ground moves are super-effective against : FIRE ELECTRIC POISON ROCK STEEL",
-                        attack_not_super_effective: "Ground moves are not very effective against : GRASS BUG",
-                        attack_no_effect: "Ground moves have no effect on : FLYING",
-                        attack_no_effect_aginst: "These types have no effect on Ground Pokémon: ELECTRIC",
-                        defence_not_very_effective: "These types are not very Effective against Ground Pokémon : POISON ROCK",
-                        defence_super_very_effective: "These types are super-effective against Ground Pokémon : WATER GRASS ICE"
-                        }
-
-                ground.each do |key, values|
-                        puts values
-                end
-        end
-
-        def electric_Type
-                electric = {
-                        attack_super_effective: "Electric moves are super-effective against : WATER FLYING",
-                        attack_not_super_effective: "Electric moves are not very effective against : ELECTRIC GRASS DRAGON",
-                        attack_no_effect: "Electric moves have no effect on : GROUND",
-                        defence_not_very_effective: "These types are not very Effective against Electric Pokémon : ELECTRIC FLYING STEEL",
-                        defence_super_very_effective: "These types are super-effective against Electric Pokémon : GROUND"
-                        }
-                electric.each do |key, values|
-                        puts values
-                end
-        end
-
-        def normal_Type
-                normal = {
-                        attack_super_effective: "Normal moves are super-effective against: ROCK STEEL",
-                        attack_no_effect: "Normal moves have no effect on : GHOST",
-                        attack_no_effect_aginst: "These types have no effect on Normal Pokémon: GHOST",
-                        defence_super_very_effective: "These types are super-effective against Normal Pokémon: FIGHTING"
-                        }
-
-                normal.each do |key, values|
-                        puts values
-                end
-        end
-
-        def bug_Type
-                bug = {
-                        attack_super_effective: "Bug moves are super-effective against : GRASS PSYCHIC DARK",
-                        attack_not_super_effective: "Bug moves are not very effective against : FIRE FIGHTING POISON FLYING GHOST STEEL FAIRY",
-                        defence_not_very_effective: "These types are not very Effective against Bug Pokémon : GRASS FIGHTING GROUND",
-                        defence_super_very_effective: "These types are super-effective against Bug Pokémon : FIRE FLYING ROCK"
-                        }
-
-                bug.each do |key, values|
-                        puts values
-                end
-        end
-
-        def water_Type
-                water = {
-                        attack_super_effective: "Water moves are super-effective against : FIRE GROUND ROCK",
-                        attack_not_super_effective: "Water moves are not very effective against : WATER GRASS DRAGON",
-                        defence_not_very_effective: "These types are not very Effective against Water Pokémon : FIRE WATER ICE STEEL",
-                        defence_super_very_effective: "These types are super-effective against Water Pokémon : ELECTRIC GRASS"
-                        }
-
-                water.each do |key, values|
-                        puts values
-                end
-        end
-
-        def flying_Type
-                flying = {
-                        attack_super_effective: "Flying moves are super-effective against : GRASS FIGHTING BUG",
-                        attack_not_super_effective: "Flying moves are not very effective against : ELECTRIC ROCK STEEL",
-                        attack_no_effect_aginst: "These types have no effect on Flying Pokémon: GROUND",
-                        defence_not_very_effective: "These types are not very Effective against Flying Pokémon : GRASS FIGHTING BUG",
-                        defence_super_very_effective: "These types are super-effective against Flying Pokémon : ELECTRIC ICE ROCK"
-                        }
-
-                flying.each do |key, values|
-                        puts values
-                end
-end
-
-        def fire_Type
-                fire = {
-                        attack_super_effective: "Fire moves are super-effective against : GRASS ICE BUG STEEL",
-                        attack_not_super_effective: "Fire moves are not very effective against : FIRE WATER ROCK DRAGON",
-                        defence_not_very_effective: "These types are not very Effective against Fire Pokémon : FIRE GRASS ICE BUG STEEL FAIRY",
-                        defence_super_very_effective: "These types are super-effective against Fire Pokémon : WATER GROUND ROCK"
-                        }
-
-                fire.each do |key, values|
-                        puts values
-                end
-        end
-end
+    end
 
 
+types = []
+types.push PokemonTypes.new("Grass","WATER GROUND ROCK","FIRE GRASS POISON FLYING BUG DRAGON STEEL","WATER ELECTRIC GRASS GROUND","FIRE ICE POISON FLYING BUG")
+types.push PokemonTypes.new("Poison", "GRASS FAIRY","POISON GROUND ROCK GHOST","GRASS FIGHTING POISON BUG FAIRY","GROUND PSYCHIC","STEEL")
+types.push PokemonTypes.new("Dragon","DRAGON","STEEL","FIRE WATER ELECTRIC GRASS","ICE DRAGON FAIRY","FAIRY")
+types.push PokemonTypes.new("Ghost","PSYCHIC GHOST","DARK","POISON BUG","GHOST DARK","NORMAL","NORMAL,FIGHTING")
+types.push PokemonTypes.new("Ice","GRASS GROUND FLYING DRAGON","FIRE WATER ICE STEEL","ICE","FIRE FIGHTING ROCK STEEL")
+types.push PokemonTypes.new("Steel","ICE ROCK FAIRY","FIRE WATER ELECTRIC STEEL","NORMAL GRASS ICE FLYING PSYCHIC BUG ROCK DRAGON STEEL FAIRY","FIRE FIGHTING GROUND",false,"POISON")
+types.push PokemonTypes.new("Rock","FIRE ICE FLYING BUG","FIGHTING GROUND STEEL","NORMAL FIRE POISON FLYING","WATER GRASS FIGHTING GROUND STEEL")
+types.push PokemonTypes.new("Fighting","NORMAL ICE ROCK DARK STEEL","POISON FLYING PSYCHIC BUG FAIRY","BUG ROCK DARK","FLYING PSYCHIC FAIRY","GHOST")
+types.push PokemonTypes.new("Psychic","FIGHTING POISON","PSYCHIC STEEL","FIGHTING PSYCHIC","BUG GHOST DARK","DARK")
+types.push PokemonTypes.new("Fairy","FIGHTING DRAGON DARK","FIRE POISON STEEL","FIGHTING BUG DARK","POISON STEEL",false,"DRAGON")
+types.push PokemonTypes.new("Fairy","FIGHTING DRAGON DARK","FIRE POISON STEEL","FIGHTING BUG DARK","POISON STEEL","FLYING","ELECTRIC")
+types.push PokemonTypes.new("Ground","FIRE ELECTRIC POISON ROCK STEEL","GRASS BUG","POISON ROCK","WATER GRASS ICE")
+types.push PokemonTypes.new("Bug","GRASS PSYCHIC DARK","FIRE FIGHTING POISON FLYING GHOST STEEL FAIRY","GRASS FIGHTING GROUND","FIRE FLYING ROCK")
+types.push PokemonTypes.new("Water","FIRE GROUND ROCK","WATER GRASS DRAGON","FIRE WATER ICE STEEL","ELECTRIC GRASS")
+types.push PokemonTypes.new("Flying","GRASS FIGHTING BUG","ELECTRIC ROCK STEEL","GRASS FIGHTING BUG","ELECTRIC ICE ROCK",false,"GROUND")
+types.push PokemonTypes.new("Fire","GRASS ICE BUG STEEL","FIRE WATER ROCK DRAGON","FIRE GRASS ICE BUG STEEL FAIRY","WATER GROUND ROCK")
+
+types[4].output_all

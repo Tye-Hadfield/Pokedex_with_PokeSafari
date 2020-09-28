@@ -23,20 +23,39 @@ puts "****************************************************************"
 puts "What would you like to do today?"
 puts "To catch pokemon in the safari enter 'catch' or if you would like to see what you have already caught enter 'caught' "
 
+return_to_lodge = true
+
+while return_to_lodge == true
+
 safari_choice = gets.chomp.to_s.capitalize
 
 if safari_choice == "Catch"
 
 random_pokemon = data.sample[:name]
 
-puts "****************************************************************"
+    puts "****************************************************************"
 
-puts "You were walking through the grass and a wild #{random_pokemon} appeared!!"
+    puts "You were walking through the grass and a wild #{random_pokemon} appeared!!"
 
-puts "Would you like to try and catch #{random_pokemon}?"
+    puts "Would you like to try and catch #{random_pokemon}?"
 
-puts "****************************************************************"
+    puts "****************************************************************"
 
-puts "Run (Search for another) | catch (Try your luck) | home (Takes back to the lodge)"
+    puts "Run (Search for another) | catch (Try your luck) | home (Takes back to the lodge)"
 
+safari_pokemon_choice = gets.chomp.to_s.capitalize
+
+    if safari_pokemon_choice == "Home"
+        puts "****************************************************************"
+        puts "Welcome back to the Safari lodge"
+        puts "would you like to catch more pokemon| Yes or No|?"
+        back_to_searching = gets.chomp.to_s.capitalize
+    
+     if  back_to_searching == "No"
+        return_to_lodge = false
+        
+
+            end
+        end
+    end
 end
