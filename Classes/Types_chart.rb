@@ -5,7 +5,7 @@ class PokemonTypes
         attr_reader :grass, :poison, :dragon, :ghost, :ice, :steel, :rock, :fighting, :psychic, :fairy, :ground, :electric, :normal, :bug, :water, :flying, :fire
 
 
-        def Initialize
+        def initialize
         @grass = grass
         @poison = poison
         @dragon = dragon
@@ -259,5 +259,4 @@ end
         end
 end
 
-pokemon = PokemonTypes.new
-pokemon.ground_Type
+
