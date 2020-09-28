@@ -10,11 +10,28 @@ puts "Welcome to the Pokedex and Pokemon Safari"
 
 puts "****************************************************************"
 
-puts "How would you like to search the Pokedex, Name or Pokedex number?"
+puts "Please choose an option to begin!"
+puts "PokeDex | Pokemon Safari  | Help"
 
-how_to_search = gets.chomp.to_s.capitalize
+puts "****************************************************************"
 
+menu_choice = gets.chomp.to_s.capitalize
+
+    if menu_choice == "Pokemon safari"
+        return
+    end
+
+
+    menu_choice == "Pokedex"
+
+    puts "****************************************************************"
+    
+    puts "How would you like to search the Pokedex, Name or Pokedex number?"
+    
+    how_to_search = gets.chomp.to_s.capitalize
+    
 if how_to_search == "Pokedex number" || how_to_search == "Number"
+
     puts "****************************************************************"
     how_to_search = PokemonSearch.new
     how_to_search.pokemonTestPokeDexNumer
