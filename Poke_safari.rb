@@ -1,8 +1,7 @@
+require 'csv'
+require 'smarter_csv'
 
-
-
-
-
+data = SmarterCSV.process('pokemon.csv',{header_transformations:[:none]})
 
 # ***Main****
 
@@ -28,6 +27,16 @@ safari_choice = gets.chomp.to_s.capitalize
 
 if safari_choice == "Catch"
 
-puts "You were walking through the grass and a wild  appeared!!"
+random_pokemon = data.sample[:name]
+
+puts "****************************************************************"
+
+puts "You were walking through the grass and a wild #{random_pokemon} appeared!!"
+
+puts "Would you like to try and catch #{random_pokemon}?"
+
+puts "****************************************************************"
+
+puts "Run (Search for another) | catch (Try your luck) | home (Takes back to the lodge)"
 
 end
