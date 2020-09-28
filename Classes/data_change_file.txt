@@ -1,2 +1,9 @@
-        :grass, :poison, :dragon, :ghost, :ice, :steel, :rock, :fighting, :psychic, :fairy, :ground, :electric, :normal, :bug, :water, :flying, :fire
+puts "#{flying[:attack_super_effective]}"
+                puts ""
+                puts "#{flying[:attack_not_super_effective]}"
+                puts ""
+                puts "#{flying[:defence_not_very_effective]}"
+                puts ""
+                puts "#{flying[:defence_super_very_effective]}"
+                puts ""
         
