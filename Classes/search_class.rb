@@ -1,9 +1,6 @@
 require 'csv'
 require 'smarter_csv'
 
-
-
-
 #*******Pokedex searching by Pokedex number function***********
 
 class PokemonSearch

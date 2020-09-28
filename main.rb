@@ -1,8 +1,5 @@
 require_relative 'Classes/Types_chart.rb'
-require 'csv'
-require 'smarter_csv'
-
-
+require_relative 'Classes/search_class.rb'
 
 #*****Main******
 
@@ -17,13 +14,14 @@ puts "How would you like to search the Pokedex, Name or Pokedex number?"
 
 how_to_search = gets.chomp.to_s.capitalize
 
-if how_to_search == "Pokedex number"
+if how_to_search == "Pokedex number" || how_to_search == "Number"
     puts "****************************************************************"
-    pokemonTestPokeDexNumer
-elsif how_to_search == "Number"
-    puts "****************************************************************"
-    pokemonTestPokeDexNumer
+    how_to_search = PokemonSearch.new
+    how_to_search.pokemonTestPokeDexNumer
+
 elsif how_to_search == "Name"
     puts "****************************************************************"
-    pokemonTestPokemonName
+    how_to_search = PokemonSearch.new
+    how_to_search.pokemonTestPokemonName
+
 end
