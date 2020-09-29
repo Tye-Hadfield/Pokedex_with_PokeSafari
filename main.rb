@@ -1,8 +1,8 @@
 require_relative 'Classes/Types_chart.rb'
 require_relative 'Classes/search_class.rb'
+require_relative 'Classes/safari_class.rb'
 
 #*****Main******
-
 
 puts "****************************************************************"
 
@@ -11,25 +11,27 @@ puts "Welcome to the Pokedex and Pokemon Safari"
 puts "****************************************************************"
 
 puts "Please choose an option to begin!"
-puts "PokeDex | Pokemon Safari  | Help"
+puts "PokeDex | Safari  | Help"
+puts "****************************************************************"
+menu_choice = gets.chomp.to_s.capitalize
+
+if  menu_choice == "Safari"
+   
+   poke_safari = Safari.new
+   poke_safari.safari_Catch
+
+end
+
+if menu_choice == "Pokedex"
 
 puts "****************************************************************"
 
-menu_choice = gets.chomp.to_s.capitalize
+puts "How would you like to search the Pokedex, Name or Pokedex number?"
 
-    if menu_choice == "Pokemon safari"
-        return
-    end
+end
 
+how_to_search = gets.chomp.to_s.capitalize
 
-    menu_choice == "Pokedex"
-
-    puts "****************************************************************"
-    
-    puts "How would you like to search the Pokedex, Name or Pokedex number?"
-    
-    how_to_search = gets.chomp.to_s.capitalize
-    
 if how_to_search == "Pokedex number" || how_to_search == "Number"
 
     puts "****************************************************************"
@@ -42,3 +44,4 @@ elsif how_to_search == "Name"
     how_to_search.pokemonTestPokemonName
 
 end
+

@@ -2,12 +2,22 @@ require 'csv'
 require 'smarter_csv'
 
 
+class Safari
+
+    def initialize
+
+    end
+
 
 def safari_Catch
 
 data_safari = SmarterCSV.process('pokemon.csv',{header_transformations:[:none]})
 
 return_to_lodge = false
+
+
+puts "****************************************************************"
+puts "Welcome to the Pokemon Safari lodge!! Type catch to begin catching pokemon!!"
 safari_choice = gets.chomp.to_s.capitalize
 
 if safari_choice == "Catch"
@@ -89,8 +99,7 @@ elsif user_choice == "Yes"
     end
 end
         
-        
+        end
     end
 end
 
-safari_Catch
