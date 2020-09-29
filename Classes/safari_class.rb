@@ -21,6 +21,8 @@ random_pokemon = data_safari.sample
 
     puts "You were walking through the grass and a wild #{random_pokemon[:name]} appeared!!"
 
+    puts "****************************************************************"
+
     puts "Would you like to try and catch #{random_pokemon[:name]}?"
 
     puts "****************************************************************"
@@ -31,6 +33,9 @@ safari_pokemon_choice = gets.chomp.to_s.capitalize
 
 if safari_pokemon_choice == "Run" 
 
+    puts "****************************************************************"
+
+    puts "Phew! you got away safely"
 
 elsif safari_pokemon_choice == "Home"
     puts "Welcome back to the pokemon lodge, would you like to leave? Yes (Exit application) ||  No (Catch more Pokemon) || Check (Shows pokemon caught in safari) "
@@ -44,7 +49,8 @@ if user_choice == "Check"
 
    test.each do |pokemon|
 
-    puts "You have caught #{pokemon}!!"
+    puts "****************************************************************"
+    puts "You have caught #{pokemon}"
 
 end
 
@@ -53,16 +59,19 @@ end
 
 
 if safari_pokemon_choice == "Catch"
-    
+
+    puts "****************************************************************"
     puts "You lock eyes with #{random_pokemon[:name]} and throw your Pokeball"
     
     number = rand(1..10)
     
     if number <= 5
-        puts "Fail"
+        puts "****************************************************************"
+        puts "Oh no! You missed and #{random_pokemon[:name]} got away"
+
     elsif number >= 6
-        
-        puts "win"
+        puts "****************************************************************"
+        puts "All right! You caught #{random_pokemon[:name]}"
         CSV.open("caught_pokemon.csv", "ab") do |csv|
             csv << ["#{random_pokemon[:name]}"]
     end
