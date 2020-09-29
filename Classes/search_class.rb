@@ -26,7 +26,6 @@ def pokemonTestPokeDexNumer
     select_pokemon = data.select {|hash| hash[:pokedexnumber] == user_choice }[0]
 
     puts "****************************************************************"
-
     puts "Pokedex Number - #{select_pokemon[:pokedexnumber]}"
     puts "Name - #{select_pokemon[:name]}"
     puts "type(s) - #{select_pokemon[:type_1]} #{select_pokemon[:type_2]}"
