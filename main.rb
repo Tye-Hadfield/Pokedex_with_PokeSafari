@@ -4,6 +4,8 @@ require_relative 'Classes/safari_class.rb'
 
 #*****Main******
 
+def main
+
 puts "****************************************************************"
 
 puts "Welcome to the Pokedex and Pokemon Safari"
@@ -19,7 +21,6 @@ if  menu_choice == "Safari"
    
    poke_safari = Safari.new
    poke_safari.safari_Catch
-
 end
 
 if menu_choice == "Pokedex"
@@ -45,3 +46,6 @@ elsif how_to_search == "Name"
 
 end
 
+end
+
+main
