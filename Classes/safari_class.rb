@@ -1,5 +1,6 @@
 require 'csv'
 require 'smarter_csv'
+require "tty-prompt"
 
 
 class Safari
@@ -11,16 +12,17 @@ class Safari
 
 def safari_Catch
 
+prompt = TTY::Prompt.new
 data_safari = SmarterCSV.process('pokemon.csv',{header_transformations:[:none]})
 
 return_to_lodge = false
 
 
-puts "****************************************************************"
-puts "Welcome to the Pokemon Safari lodge!! Type catch to begin catching pokemon!!"
-safari_choice = gets.chomp.to_s.capitalize
+choices = {"Start Catching!!" => 1}
+safari_choice = prompt.select("Welcome to the Pokemon Safari lodge!!", choices)
 
-if safari_choice == "Catch"
+
+if safari_choice == 1
 
 until return_to_lodge == true
 
@@ -37,27 +39,28 @@ random_pokemon = data_safari.sample
 
     puts "****************************************************************"
 
-    puts "Run (Search for another) | catch (Try your luck) | home (Takes back to the lodge)"
+    menu_safari_choice = {"Run" => 1, "Catch" => 2, "Home" => 3}
+    safari_pokemon_choice = prompt.select("Run (Search for another) | catch (Try your luck) | home (Takes back to the lodge)", menu_safari_choice )
 
-safari_pokemon_choice = gets.chomp.to_s.capitalize
 
-if safari_pokemon_choice == "Run" 
+if safari_pokemon_choice == 1 
 
     puts "****************************************************************"
 
     puts "Phew! you got away safely"
 
-elsif safari_pokemon_choice == "Home"
-    puts "Welcome back to the pokemon lodge, would you like to leave? Yes (Exit application) ||  No (Catch more Pokemon) || Check (Shows pokemon caught in safari) "
-    user_choice = gets.chomp.to_s.capitalize
+elsif safari_pokemon_choice == 3
+    
+    menu_lodge_choice = {"Yes" => 1, "No" => 2, "Check" => 3}
+    user_choice = prompt.select("Welcome back to the pokemon lodge, would you like to leave? Yes (Exit application) ||  No (Catch more Pokemon) || Check (Shows pokemon caught in safari) ", menu_lodge_choice )
 end
 
 
-if user_choice == "Check"
+if user_choice == 3
 
-   test =  CSV.read("caught_pokemon.csv", headers: true)
+   show_caught_pokemon =  CSV.read("caught_pokemon.csv", headers: true)
 
-   test.each do |pokemon|
+   show_caught_pokemon.each do |pokemon|
 
     puts "****************************************************************"
     puts "You have caught #{pokemon}"
@@ -68,7 +71,7 @@ end
 end
 
 
-if safari_pokemon_choice == "Catch"
+if safari_pokemon_choice == 2
 
     puts "****************************************************************"
     puts "You lock eyes with #{random_pokemon[:name]} and throw your Pokeball"
@@ -90,10 +93,10 @@ if safari_pokemon_choice == "Catch"
 end
 
 
-if user_choice == "No"
+if user_choice == 2
     return_to_lodge = false
 
-elsif user_choice == "Yes"
+elsif user_choice == 1
     return_to_lodge = true
 
     end

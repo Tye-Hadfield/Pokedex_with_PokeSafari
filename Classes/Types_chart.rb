@@ -78,4 +78,3 @@ types.push PokemonTypes.new("Water","FIRE GROUND ROCK","WATER GRASS DRAGON","FIR
 types.push PokemonTypes.new("Flying","GRASS FIGHTING BUG","ELECTRIC ROCK STEEL","GRASS FIGHTING BUG","ELECTRIC ICE ROCK",false,"GROUND")
 types.push PokemonTypes.new("Fire","GRASS ICE BUG STEEL","FIRE WATER ROCK DRAGON","FIRE GRASS ICE BUG STEEL FAIRY","WATER GROUND ROCK")
 
-types[5].output_all

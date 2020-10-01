@@ -1,7 +1,13 @@
 require 'csv'
 require 'smarter_csv'
+require 'tty-prompt'
+
+
 
 #*******Pokedex searching by Pokedex number function***********
+
+
+
 
 class PokemonSearch
 
@@ -13,6 +19,7 @@ end
 
 def pokemonTestPokeDexNumer
     
+    prompt = TTY::Prompt.new
     data = SmarterCSV.process('pokemon.csv',{header_transformations:[:none]})
 
     user_answer = true
@@ -38,18 +45,19 @@ def pokemonTestPokeDexNumer
     puts "Generation - #{select_pokemon[:generation]}"
 
     puts "****************************************************************"
-
-    puts "Would you like to search another Pokemon? (Yes or No)"
     
-     run_again = gets.chomp.to_s.capitalize
+    choices = {"Yes" => 1, "No" => 2}
+
+    run_again = prompt.select("Would you like to search another Pokemon? (Yes or No)", choices)
+    
     
 
-        if run_again == "No" || run_again == "N"
+        if run_again == 2
            user_answer = false
             puts "****************************************************************"
             puts "Thank you for using the Pokedex!!"
         elsif
-            run_again == "Yes" || run_again == "Y"
+            run_again == 1
             user_answer = true
             puts "****************************************************************"
         end
@@ -62,7 +70,7 @@ end
 #*******Pokedex searching by name function*********
 
 def pokemonTestPokemonName
-
+    prompt = TTY::Prompt.new
     data = SmarterCSV.process('pokemon.csv',{header_transformations:[:none]})
 
     user_answer = true
@@ -90,21 +98,21 @@ def pokemonTestPokemonName
 
 
     puts "****************************************************************"
-
-    puts "Would you like to search another Pokemon?(Yes or No)"
-    
-     run_again = gets.chomp.to_s.capitalize
-    
-
-     if run_again == "No" || run_again == "N"
-        user_answer = false
-         puts "****************************************************************"
-         puts "Thank you for using the Pokedex!!"
-     elsif
-         run_again == "Yes" || run_again == "Y"
-         user_answer = true
-         puts "****************************************************************"
         
+     choices = {"Yes" => 1, "No" => 2}
+
+     run_again = prompt.select("Would you like to search another Pokemon? (Yes or No)", choices)
+     
+     
+ 
+         if run_again == 2
+            user_answer = false
+             puts "****************************************************************"
+             puts "Thank you for using the Pokedex!!"
+         elsif
+             run_again == 1
+             user_answer = true
+             puts "****************************************************************"
             end
         end
     end
