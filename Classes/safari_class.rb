@@ -3,7 +3,7 @@ require 'smarter_csv'
 require "tty-prompt"
 
 
-class Safari
+class Safari < PokemonTypes
 
     def initialize
 
@@ -28,6 +28,7 @@ until return_to_lodge == true
 
 
 random_pokemon = data_safari.sample
+    # system "clear"
 
     puts "****************************************************************"
 
@@ -52,7 +53,7 @@ if safari_pokemon_choice == 1
 elsif safari_pokemon_choice == 3
     
     menu_lodge_choice = {"Yes" => 1, "No" => 2, "Check" => 3}
-    user_choice = prompt.select("Welcome back to the pokemon lodge, would you like to leave? Yes (Exit application) ||  No (Catch more Pokemon) || Check (Shows pokemon caught in safari) ", menu_lodge_choice )
+    user_choice = prompt.select("Welcome back to the pokemon lodge, would you like to leave? Yes (Return to main menu) ||  No (Catch more Pokemon) || Check (Shows pokemon caught in safari) ", menu_lodge_choice )
 end
 
 
@@ -65,8 +66,16 @@ if user_choice == 3
     puts "****************************************************************"
     puts "You have caught #{pokemon}"
 
+    
+    
 end
 
+view_pokemon_menu = {"Yes" => 1, "No" => 2}
+view_user_choice = prompt.select("Would you like to go back to catching pokemon (Yes) or return to the main menu (No)? ", view_pokemon_menu )
+
+if view_user_choice == 2
+    break
+end
         
 end
 
