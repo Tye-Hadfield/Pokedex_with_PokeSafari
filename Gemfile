@@ -13,3 +13,5 @@ gem "colorize", "~> 0.8.1"
 gem 'smarter_csv', '~> 1.2', '>= 1.2.6'
 
 gem 'tty-prompt', '~> 0.22.0'
+
+gem 'tty-table', '~> 0.12.0'

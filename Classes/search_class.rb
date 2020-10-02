@@ -1,6 +1,7 @@
 require 'csv'
 require 'smarter_csv'
 require 'tty-prompt'
+require 'tty-table'
 require_relative 'Types_chart.rb'
 
 
@@ -9,72 +10,39 @@ require_relative 'Types_chart.rb'
 
 
 class PokemonSearch 
-
-    @@pokemon_types = populate_types
-
-    
-    
+        
     def initialize
     end
     
     
     
 def pokemonTestPokeDexNumer
-        
-    grass = @@pokemon_types[0]
-    poison = @@pokemon_types[1]
-    dragon = @@pokemon_types[2]
-    ghost = @@pokemon_types[3]
-    ice = @@pokemon_types[4]
-    steel = @@pokemon_types[5]
-    rock = @@pokemon_types[6]
-    fighting = @@pokemon_types[7]
-    psychic = @@pokemon_types[8]
-    fairy = @@pokemon_types[9]
-    ground = @@pokemon_types[10]
-    bug = @@pokemon_types[11]
-    water = @@pokemon_types[12]
-    flying = @@pokemon_types[13]
-    fire = @@pokemon_types[14]
-    normal = @@pokemon_types[15]
 
-        
+    
     prompt = TTY::Prompt.new
     data = SmarterCSV.process('pokemon.csv',{header_transformations:[:none]})
-
+    types_data = SmarterCSV.process('test.csv',{header_transformations:[:none]})
+    
     user_answer = true
-
+    
     while user_answer == true
+        
+        puts "Choose number between 1-151"
+        
+        user_choice = gets.chomp.to_i
+        
+        select_pokemon = data.select {|hash| hash[:pokedexnumber] == user_choice }[0]
+        
+    table = TTY::Table.new(["Pokedex Number","Name","type(s)","HP stats","Attack stats","Defense stats","SP_Atk stats","SP_Def stats","Speed stats","Generation"], [["#{select_pokemon[:pokedexnumber]}", "#{select_pokemon[:name]}", "#{select_pokemon[:type_1]} #{select_pokemon[:type_2]}","#{select_pokemon[:hp]}","#{select_pokemon[:attack]}","#{select_pokemon[:defense]}","#{select_pokemon[:spatk]}","#{select_pokemon[:spdef]}","#{select_pokemon[:speed]}","#{select_pokemon[:generation]}"]])
+    puts table.render(:ascii, alignment: [:center],padding: [0.5,0.5,0.5,0.5])
 
-    puts "Choose number between 1-151"
 
-    user_choice = gets.chomp.to_i
-
-    select_pokemon = data.select {|hash| hash[:pokedexnumber] == user_choice }[0]
-
-    puts "****************************************************************"
-    puts "Pokedex Number - #{select_pokemon[:pokedexnumber]}"
-    puts "Name - #{select_pokemon[:name]}"
-    puts "type(s) - #{select_pokemon[:type_1]} #{select_pokemon[:type_2]}"
-    puts "HP stats - #{select_pokemon[:hp]}"
-    puts "Attack stats - #{select_pokemon[:attack]}"
-    puts "Defense stats - #{select_pokemon[:defense]}"
-    puts "SP_Atk stats - #{select_pokemon[:spatk]}"
-    puts "SP_Def stats - #{select_pokemon[:spdef]}"
-    puts "Speed stats - #{select_pokemon[:speed]}"
-    puts "Generation - #{select_pokemon[:generation]}"
+    type_of_pokemon = select_pokemon[:type_1]
+    type_of_pokemon2 = select_pokemon[:type_2]
     
-    
-    puts "****************************************************************"
-    
-    pokemon_type1 = select_pokemon[:type_1]
-    pokemon_type2 = select_pokemon[:type_2]
+    pokemon_type1 = types_data.select {|hash| hash[:name] == type_of_pokemon }[0]
+    pokemon_type2 = types_data.select {|hash| hash[:name] == type_of_pokemon2 }[0]
 
-    normal.output_all
-   
-
-    p pokemon_type1
-    p pokemon_type2
 
 
     choices = {"Yes" => 1, "No" => 2}
@@ -83,7 +51,6 @@ def pokemonTestPokeDexNumer
     
     
     puts "****************************************************************"
-
         if run_again == 2
            user_answer = false
             puts "****************************************************************"
@@ -115,21 +82,11 @@ def pokemonTestPokemonName
 
     select_pokemon = data.select {|hash| hash[:name] == user_choice }[0]
 
-    puts "****************************************************************"
 
-    puts "Pokedex Number - #{select_pokemon[:pokedexnumber]}"
-    puts "Name - #{select_pokemon[:name]}"
-    puts "type(s) - #{select_pokemon[:type_1]} #{select_pokemon[:type_2]}"
-    puts "HP stats - #{select_pokemon[:hp]}"
-    puts "Attack stats - #{select_pokemon[:attack]}"
-    puts "Defense stats - #{select_pokemon[:defense]}"
-    puts "SP_Atk stats - #{select_pokemon[:sp_atk]}"
-    puts "SP_Def stats - #{select_pokemon[:sp_def]}"
-    puts "Speed stats - #{select_pokemon[:speed]}"
-    puts "Generation - #{select_pokemon[:generation]}"    
+    table = TTY::Table.new(["Pokedex Number","Name","type(s)","HP stats","Attack stats","Defense stats","SP_Atk stats","SP_Def stats","Speed stats","Generation"], [["#{select_pokemon[:pokedexnumber]}", "#{select_pokemon[:name]}", "#{select_pokemon[:type_1]} #{select_pokemon[:type_2]}","#{select_pokemon[:hp]}","#{select_pokemon[:attack]}","#{select_pokemon[:defense]}","#{select_pokemon[:spatk]}","#{select_pokemon[:spdef]}","#{select_pokemon[:speed]}","#{select_pokemon[:generation]}"]])
+    puts table.render(:ascii, alignment: [:center],padding: [0.5,0.5,0.5,0.5])
 
 
-    puts "****************************************************************"
         
      choices = {"Yes" => 1, "No" => 2}
 

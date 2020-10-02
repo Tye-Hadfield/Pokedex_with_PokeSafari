@@ -1,5 +1,8 @@
  
  
+ require 'csv'
+ require 'smarter_csv'
+ 
  #This is the types and what their Strength and weakness are (Move to class when got time)
             
 class PokemonTypes
@@ -13,6 +16,7 @@ class PokemonTypes
             @defence_super_very_effective = defence_super_very_effective
             @attack_no_effect = attack_no_effect
             @defense_no_effect = defense_no_effect
+            @types = []
 
         end
 
@@ -62,24 +66,25 @@ class PokemonTypes
     end
     
     
-    def populate_types
-        types = []
-        types.push PokemonTypes.new("Grass","WATER GROUND ROCK","FIRE GRASS POISON FLYING BUG DRAGON STEEL","WATER ELECTRIC GRASS GROUND","FIRE ICE POISON FLYING BUG")
-        types.push PokemonTypes.new("Poison", "GRASS FAIRY","POISON GROUND ROCK GHOST","GRASS FIGHTING POISON BUG FAIRY","GROUND PSYCHIC","STEEL")
-        types.push PokemonTypes.new("Dragon","DRAGON","STEEL","FIRE WATER ELECTRIC GRASS","ICE DRAGON FAIRY","FAIRY")
-        types.push PokemonTypes.new("Ghost","PSYCHIC GHOST","DARK","POISON BUG","GHOST DARK","NORMAL","NORMAL,FIGHTING")
-        types.push PokemonTypes.new("Ice","GRASS GROUND FLYING DRAGON","FIRE WATER ICE STEEL","ICE","FIRE FIGHTING ROCK STEEL")
-        types.push PokemonTypes.new("Steel","ICE ROCK FAIRY","FIRE WATER ELECTRIC STEEL","NORMAL GRASS ICE FLYING PSYCHIC BUG ROCK DRAGON STEEL FAIRY","FIRE FIGHTING GROUND",false,"POISON")
-        types.push PokemonTypes.new("Rock","FIRE ICE FLYING BUG","FIGHTING GROUND STEEL","NORMAL FIRE POISON FLYING","WATER GRASS FIGHTING GROUND STEEL")
-        types.push PokemonTypes.new("Fighting","NORMAL ICE ROCK DARK STEEL","POISON FLYING PSYCHIC BUG FAIRY","BUG ROCK DARK","FLYING PSYCHIC FAIRY","GHOST")
-        types.push PokemonTypes.new("Psychic","FIGHTING POISON","PSYCHIC STEEL","FIGHTING PSYCHIC","BUG GHOST DARK","DARK")
-        types.push PokemonTypes.new("Fairy","FIGHTING DRAGON DARK","FIRE POISON STEEL","FIGHTING BUG DARK","POISON STEEL",false,"DRAGON")
-        types.push PokemonTypes.new("Ground","FIRE ELECTRIC POISON ROCK STEEL","GRASS BUG","POISON ROCK","WATER GRASS ICE")
-        types.push PokemonTypes.new("Bug","GRASS PSYCHIC DARK","FIRE FIGHTING POISON FLYING GHOST STEEL FAIRY","GRASS FIGHTING GROUND","FIRE FLYING ROCK")
-        types.push PokemonTypes.new("Water","FIRE GROUND ROCK","WATER GRASS DRAGON","FIRE WATER ICE STEEL","ELECTRIC GRASS")
-        types.push PokemonTypes.new("Flying","GRASS FIGHTING BUG","ELECTRIC ROCK STEEL","GRASS FIGHTING BUG","ELECTRIC ICE ROCK",false,"GROUND")
-        types.push PokemonTypes.new("Fire","GRASS ICE BUG STEEL","FIRE WATER ROCK DRAGON","FIRE GRASS ICE BUG STEEL FAIRY","WATER GROUND ROCK")
-        types.push PokemonTypes.new("Normal","ROCK STEEL","GHOST","GHOST","FIGHTING")
-        return types
-      end
+
+    # CSV.open("test.csv", "ab") do |csv|
+
+    # csv << ["Grass","WATER GROUND ROCK","FIRE GRASS POISON FLYING BUG DRAGON STEEL","WATER ELECTRIC GRASS GROUND","FIRE ICE POISON FLYING BUG"]
+    # csv << ["Poison", "GRASS FAIRY","POISON GROUND ROCK GHOST","GRASS FIGHTING POISON BUG FAIRY","GROUND PSYCHIC","STEEL"]
+    # csv << ["Dragon","DRAGON","STEEL","FIRE WATER ELECTRIC GRASS","ICE DRAGON FAIRY","FAIRY"]
+    # csv << ["Ghost","PSYCHIC GHOST","DARK","POISON BUG","GHOST DARK","NORMAL","NORMAL,FIGHTING"]
+    # csv << ["Ice","GRASS GROUND FLYING DRAGON","FIRE WATER ICE STEEL","ICE","FIRE FIGHTING ROCK STEEL"]
+    # csv << ["Steel","ICE ROCK FAIRY","FIRE WATER ELECTRIC STEEL","NORMAL GRASS ICE FLYING PSYCHIC BUG ROCK DRAGON STEEL FAIRY","FIRE FIGHTING GROUND",false,"POISON"]
+    # csv << ["Rock","FIRE ICE FLYING BUG","FIGHTING GROUND STEEL","NORMAL FIRE POISON FLYING","WATER GRASS FIGHTING GROUND STEEL"]
+    # csv << ["Fighting","NORMAL ICE ROCK DARK STEEL","POISON FLYING PSYCHIC BUG FAIRY","BUG ROCK DARK","FLYING PSYCHIC FAIRY","GHOST"]
+    # csv << ["Psychic","FIGHTING POISON","PSYCHIC STEEL","FIGHTING PSYCHIC","BUG GHOST DARK","DARK"]
+    # csv << ["Fairy","FIGHTING DRAGON DARK","FIRE POISON STEEL","FIGHTING BUG DARK","POISON STEEL",false,"DRAGON"]
+    # csv << ["Ground","FIRE ELECTRIC POISON ROCK STEEL","GRASS BUG","POISON ROCK","WATER GRASS ICE"]
+    # csv << ["Bug","GRASS PSYCHIC DARK","FIRE FIGHTING POISON FLYING GHOST STEEL FAIRY","GRASS FIGHTING GROUND","FIRE FLYING ROCK"]
+    # csv << ["Water","FIRE GROUND ROCK","WATER GRASS DRAGON","FIRE WATER ICE STEEL","ELECTRIC GRASS"]
+    # csv << ["Flying","GRASS FIGHTING BUG","ELECTRIC ROCK STEEL","GRASS FIGHTING BUG","ELECTRIC ICE ROCK",false,"GROUND"]
+    # csv << ["Fire","GRASS ICE BUG STEEL","FIRE WATER ROCK DRAGON","FIRE GRASS ICE BUG STEEL FAIRY","WATER GROUND ROCK"]
+    # csv << ["Normal","ROCK STEEL","GHOST","GHOST","FIGHTING"]
+
+    # end
     
