@@ -59,23 +59,22 @@ def pokemonTestPokeDexNumer
             puts "These types have no effect on #{pokemon_type1[:name]} Pokémon: #{pokemon_type1[:defense_no_effect]}"
            
             
-                    
-            if test_type  == 6
 
-            puts "Type : #{pokemon_type2[:name]}"
-            puts "#{pokemon_type2[:name]} moves are super-effective against: #{pokemon_type2[:attack_super_effective]}"
-            puts "#{pokemon_type2[:name]} moves are not very effective against: #{pokemon_type2[:attack_not_super_effective]}"
-            puts "These types are not very effective against #{pokemon_type2[:name]} Pokémon: #{pokemon_type2[:defence_not_very_effective]}"
-            puts "These types are super-effective against #{pokemon_type2[:name]} Pokémon: #{pokemon_type2[:defence_super_very_effective]}"
-            puts "#{pokemon_type2[:name]} moves have no effect on: #{pokemon_type2[:attack_no_effect]}"
-            puts "These types have no effect on #{pokemon_type2[:name]} Pokémon: #{pokemon_type2[:defense_no_effect]}"
-            
-            elsif test_type == 0
+            if pokemon_type2.nil? == true 
 
+            return 
+
+            elsif pokemon_type2.nil? == false
                 
-
+                    puts "Type : #{pokemon_type2[:name]}"
+                    puts "#{pokemon_type2[:name]} moves are super-effective against: #{pokemon_type2[:attack_super_effective]}"
+                    puts "#{pokemon_type2[:name]} moves are not very effective against: #{pokemon_type2[:attack_not_super_effective]}"
+                    puts "These types are not very effective against #{pokemon_type2[:name]} Pokémon: #{pokemon_type2[:defence_not_very_effective]}"
+                    puts "These types are super-effective against #{pokemon_type2[:name]} Pokémon: #{pokemon_type2[:defence_super_very_effective]}"
+                    puts "#{pokemon_type2[:name]} moves have no effect on: #{pokemon_type2[:attack_no_effect]}"
+                    puts "These types have no effect on #{pokemon_type2[:name]} Pokémon: #{pokemon_type2[:defense_no_effect]}"
+                       
             end
-
 
 
         end
