@@ -98,8 +98,7 @@ def pokemonTestPokeDexNumer
     puts "****************************************************************"
         if run_again == 2
            user_answer = false
-            puts "****************************************************************"
-            puts "Thank you for using the Pokedex!!"
+            system "clear"
         elsif
             run_again == 1
             user_answer = true
@@ -116,6 +115,8 @@ end
 def pokemonTestPokemonName
     prompt = TTY::Prompt.new
     data = SmarterCSV.process('pokemon.csv',{header_transformations:[:none]})
+    types_data = SmarterCSV.process('test.csv',{header_transformations:[:none]})
+
 
     user_answer = true
 
@@ -132,6 +133,60 @@ def pokemonTestPokemonName
     puts table.render(:ascii, alignment: [:center],padding: [0.5,0.5,0.5,0.5])
 
 
+    type_of_pokemon = select_pokemon[:type_1]
+    type_of_pokemon2 = select_pokemon[:type_2]
+    
+    
+    
+    
+    def typechart(type_of_pokemon, type_of_pokemon2,types_data)
+                    
+        
+        pokemon_type1 = types_data.select {|hash| hash[:name] == type_of_pokemon }[0]
+        pokemon_type2 = types_data.select {|hash| hash[:name] == type_of_pokemon2 }[0]
+          
+        
+
+        puts "Type : #{pokemon_type1[:name]}"
+        puts "#{pokemon_type1[:name]} moves are super-effective against: #{pokemon_type1[:attack_super_effective]}"
+        puts "#{pokemon_type1[:name]} moves are not very effective against: #{pokemon_type1[:attack_not_super_effective]}"
+        puts "These types are not very effective against #{pokemon_type1[:name]} Pokémon: #{pokemon_type1[:defence_not_very_effective]}"
+        puts "These types are super-effective against #{pokemon_type1[:name]} Pokémon: #{pokemon_type1[:defence_super_very_effective]}"
+        puts "#{pokemon_type1[:name]} moves have no effect on: #{pokemon_type1[:attack_no_effect]}"
+        puts "These types have no effect on #{pokemon_type1[:name]} Pokémon: #{pokemon_type1[:defense_no_effect]}"
+       
+        
+
+        if pokemon_type2.nil? == true 
+
+        return 
+
+        elsif pokemon_type2.nil? == false
+            
+                puts "Type : #{pokemon_type2[:name]}"
+                puts "#{pokemon_type2[:name]} moves are super-effective against: #{pokemon_type2[:attack_super_effective]}"
+                puts "#{pokemon_type2[:name]} moves are not very effective against: #{pokemon_type2[:attack_not_super_effective]}"
+                puts "These types are not very effective against #{pokemon_type2[:name]} Pokémon: #{pokemon_type2[:defence_not_very_effective]}"
+                puts "These types are super-effective against #{pokemon_type2[:name]} Pokémon: #{pokemon_type2[:defence_super_very_effective]}"
+                puts "#{pokemon_type2[:name]} moves have no effect on: #{pokemon_type2[:attack_no_effect]}"
+                puts "These types have no effect on #{pokemon_type2[:name]} Pokémon: #{pokemon_type2[:defense_no_effect]}"
+                   
+        end
+
+
+    end
+    
+
+    choices = {"Yes" => 1, "No" => 2}
+    
+    type_choices = prompt.select("Would you like to see the type chart for this Pokemon? (Yes or No)", choices)
+
+    if type_choices == 1
+    
+     typechart(type_of_pokemon,type_of_pokemon2,types_data)
+
+    end
+
         
      choices = {"Yes" => 1, "No" => 2}
 
@@ -142,7 +197,7 @@ def pokemonTestPokemonName
          if run_again == 2
             user_answer = false
              puts "****************************************************************"
-             puts "Thank you for using the Pokedex!!"
+             system "clear"
          elsif
              run_again == 1
              user_answer = true

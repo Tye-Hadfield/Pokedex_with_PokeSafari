@@ -1,12 +1,14 @@
 require 'csv'
 require 'smarter_csv'
 require "tty-prompt"
+require 'tty-table'
+require 'colorize'
 
 
 class Safari < PokemonTypes
 
     def initialize
-        @test = []
+        @showpokemon = []
 
     end
 
@@ -20,24 +22,24 @@ return_to_lodge = false
 
 
 
-puts ".   ._, |_  .,"
-puts "`-._\/  .  \ /    |/_"           
-puts "    \\  _\, y | \//"
-puts "_\_.___\\, \\/ -.\||"
-puts "`7-,--.`._||  / / ,"
-puts "/'     `-. `./ / |/_.'"
-puts "          |    |//"
-puts "          |_    /"
-puts "          |-   |"
-puts "          |   =|"
-puts "          |    |"
+puts ".   ._, |_  .,".colorize(:green)
+puts "`-._\/  .  \ /    |/_".colorize(:green)  
+puts "    \\  _\, y | \//".colorize(:green) 
+puts "_\_.___\\, \\/ -.\||".colorize(:green) 
+puts "`7-,--.`._||  / / ,".colorize(:white) 
+puts "/'     `-. `./ / |/_.'".colorize(:white)
+puts "          |    |//".colorize(:white)
+puts "          |_    /".colorize(:white)
+puts "          |-   |".colorize(:white)
+puts "          |   =|".colorize(:white)
+puts "          |    |".colorize(:white)
 puts "----------------------------"
-puts "░██████╗░█████╗░███████╗░█████╗░██████╗░██╗"
-puts "██╔════╝██╔══██╗██╔════╝██╔══██╗██╔══██╗██║"
-puts "╚█████╗░███████║█████╗░░███████║██████╔╝██║"
-puts "░╚═══██╗██╔══██║██╔══╝░░██╔══██║██╔══██╗██║"
-puts "██████╔╝██║░░██║██║░░░░░██║░░██║██║░░██║██║"
-puts "╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝"
+puts "░██████╗░█████╗░███████╗░█████╗░██████╗░██╗".colorize(:cyan)
+puts "██╔════╝██╔══██╗██╔════╝██╔══██╗██╔══██╗██║".colorize(:cyan)
+puts "╚█████╗░███████║█████╗░░███████║██████╔╝██║".colorize(:cyan)
+puts "░╚═══██╗██╔══██║██╔══╝░░██╔══██║██╔══██╗██║".colorize(:cyan)
+puts "██████╔╝██║░░██║██║░░░░░██║░░██║██║░░██║██║".colorize(:cyan)
+puts "╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝".colorize(:cyan)
 
 
 
@@ -53,21 +55,21 @@ until return_to_lodge == true
 
 
 random_pokemon = data_safari.sample
-    # system "clear"
 
-    puts "****************************************************************"
+puts "****************************************************************"
 
-    puts "You were walking through the grass and a wild #{random_pokemon[:name]} appeared!!"
+puts "You were walking through the grass and a wild #{random_pokemon[:name]} appeared!!"
 
-    puts "****************************************************************"
+puts "****************************************************************"
 
-    puts "Would you like to try and catch #{random_pokemon[:name]}?"
+puts "Would you like to try and catch #{random_pokemon[:name]}?"
 
-    puts "****************************************************************"
+puts "****************************************************************"
 
-    menu_safari_choice = {"Run" => 1, "Catch" => 2, "Menu" => 3, "Check" => 4}
-    safari_pokemon_choice = prompt.select("Run (Search for another) | catch (Try your luck) | Menu (Takes back to the main menu) | Check (Check caught pokemon", menu_safari_choice )
+menu_safari_choice = {"Run" => 1, "Catch" => 2, "Menu" => 3, "Check" => 4}
+safari_pokemon_choice = prompt.select("Run (Search for another) | catch (Try your luck) | Menu (Takes back to the main menu) | Check (Check caught pokemon", menu_safari_choice )
 
+system "clear"
 
 if safari_pokemon_choice == 1 
 
@@ -78,7 +80,23 @@ if safari_pokemon_choice == 1
 
 elsif safari_pokemon_choice == 4
 
-    puts @test
+    
+    table = TTY::Table.new(["Caught Pokemon"], [[@showpokemon]])
+
+    puts table.render(:ascii)
+
+    menu_choice = {"Menu" => 1, "Continue" => 2}
+    menu_choice2 = prompt.select("Menu (Takes back to the main menu and lose current pokemon caught) | Continue (Catch more Pokemon!) ", menu_choice )
+
+    if menu_choice2 == 1
+        system "clear"
+        break
+
+    elsif menu_choice == 2
+
+        next
+
+    end
 
 
 elsif safari_pokemon_choice == 3
@@ -90,7 +108,7 @@ end
 
 # if user_choice == 3
 
-# puts @test
+# puts @showpokemon
 
 
 # #    show_caught_pokemon =  CSV.read("caught_pokemon.csv", headers: true)
@@ -121,9 +139,7 @@ if safari_pokemon_choice == 2
         puts "****************************************************************"
         puts "All right! You caught #{random_pokemon[:name]}"
         
-        @test << "#{random_pokemon[:name]}"
-        
-        p @test
+        @showpokemon << "#{random_pokemon[:name]}"
         
         
         # CSV.open("caught_pokemon.csv", "ab") do |csv|

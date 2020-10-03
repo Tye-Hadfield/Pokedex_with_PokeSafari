@@ -3,6 +3,7 @@ require_relative 'Classes/search_class.rb'
 require_relative 'Classes/safari_class.rb'
 require_relative 'Classes/Types_chart.rb'
 require 'tty-prompt'
+require 'colorize'
 
 #*****Main******
 
@@ -15,28 +16,27 @@ exit_choice = false
 
 until exit_choice == true
 
+
 puts "****************************************************************"
 
  
-puts "██████╗░░█████╗░██╗░░██╗███████╗██████╗░███████╗██╗░░██╗  ░█████╗░███╗░░██╗██████╗░"
-puts "██╔══██╗██╔══██╗██║░██╔╝██╔════╝██╔══██╗██╔════╝╚██╗██╔╝  ██╔══██╗████╗░██║██╔══██╗"
-puts "██████╔╝██║░░██║█████═╝░█████╗░░██║░░██║█████╗░░░╚███╔╝░  ███████║██╔██╗██║██║░░██║"
-puts "██╔═══╝░██║░░██║██╔═██╗░██╔══╝░░██║░░██║██╔══╝░░░██╔██╗░  ██╔══██║██║╚████║██║░░██║"
-puts "██║░░░░░╚█████╔╝██║░╚██╗███████╗██████╔╝███████╗██╔╝╚██╗  ██║░░██║██║░╚███║██████╔╝"
-puts "╚═╝░░░░░░╚════╝░╚═╝░░╚═╝╚══════╝╚═════╝░╚══════╝╚═╝░░╚═╝  ╚═╝░░╚═╝╚═╝░░╚══╝╚═════╝░"
+puts "██████╗░░█████╗░██╗░░██╗███████╗██████╗░███████╗██╗░░██╗  ░█████╗░███╗░░██╗██████╗░".colorize(:blue)
+puts "██╔══██╗██╔══██╗██║░██╔╝██╔════╝██╔══██╗██╔════╝╚██╗██╔╝  ██╔══██╗████╗░██║██╔══██╗".colorize(:blue)
+puts "██████╔╝██║░░██║█████═╝░█████╗░░██║░░██║█████╗░░░╚███╔╝░  ███████║██╔██╗██║██║░░██║".colorize(:blue)
+puts "██╔═══╝░██║░░██║██╔═██╗░██╔══╝░░██║░░██║██╔══╝░░░██╔██╗░  ██╔══██║██║╚████║██║░░██║".colorize(:blue)
+puts "██║░░░░░╚█████╔╝██║░╚██╗███████╗██████╔╝███████╗██╔╝╚██╗  ██║░░██║██║░╚███║██████╔╝".colorize(:blue)
+puts "╚═╝░░░░░░╚════╝░╚═╝░░╚═╝╚══════╝╚═════╝░╚══════╝╚═╝░░╚═╝  ╚═╝░░╚═╝╚═╝░░╚══╝╚═════╝░".colorize(:blue)
 
-puts "░██████╗░█████╗░███████╗░█████╗░██████╗░██╗"
-puts "██╔════╝██╔══██╗██╔════╝██╔══██╗██╔══██╗██║"
-puts "╚█████╗░███████║█████╗░░███████║██████╔╝██║"
-puts "░╚═══██╗██╔══██║██╔══╝░░██╔══██║██╔══██╗██║"
-puts "██████╔╝██║░░██║██║░░░░░██║░░██║██║░░██║██║"
-puts "╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝"
+puts "░██████╗░█████╗░███████╗░█████╗░██████╗░██╗".colorize(:blue)
+puts "██╔════╝██╔══██╗██╔════╝██╔══██╗██╔══██╗██║".colorize(:blue)
+puts "╚█████╗░███████║█████╗░░███████║██████╔╝██║".colorize(:blue)
+puts "░╚═══██╗██╔══██║██╔══╝░░██╔══██║██╔══██╗██║".colorize(:blue)
+puts "██████╔╝██║░░██║██║░░░░░██║░░██║██║░░██║██║".colorize(:blue)
+puts "╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝".colorize(:blue)
 
-puts "****************************************************************"
+choices = {"PokeDex".colorize(:yellow) => 1, "Safari".colorize(:blue) => 2, "Help".colorize(:green) => 3, "Exit".colorize(:red) => 4}
 
-choices = {"PokeDex " => 1, "Safari" => 2, "Help" => 3, "Exit" => 4}
-
-menu_choice = prompt.select("Please choose an option to begin!", choices)
+menu_choice = prompt.select("Please choose an option to begin!".colorize(:red), choices)
 
 puts "****************************************************************"
 
@@ -57,9 +57,9 @@ end
 
 if menu_choice == 1
 
-pokedex_choices = {"PokeDex Number " => 1, "Pokedex Name" => 2}
+pokedex_choices = {"PokeDex Number".colorize(:red) => 1, "Pokedex Name".colorize(:blue) => 2}
 
-how_to_search = prompt.select("How would you like to search the Pokedex, Name or Pokedex number?", pokedex_choices)
+how_to_search = prompt.select("How would you like to search the Pokedex, Name or Pokedex number?".colorize(:yellow), pokedex_choices)
 
 if how_to_search == 1
     system "clear"
