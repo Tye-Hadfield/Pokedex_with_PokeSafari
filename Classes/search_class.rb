@@ -30,12 +30,33 @@ def pokemonTestPokeDexNumer
         puts "Choose number between 1-151"
         
         user_choice = gets.chomp.to_i
+
+        
+        if user_choice >= 152 
+            puts "You have chosen a number larger than 151, please choose between 1 - 151"
+            sleep(2)
+            redo
+        end
+
+        
         
         select_pokemon = data.select {|hash| hash[:pokedexnumber] == user_choice }[0]
         
+        
+        if select_pokemon.nil? == true 
+             puts "You did not enter a correct number(Glen stop using strings)"
+             sleep(2)
+             redo
+             # user_choice = false
+             # p user_choice
+         end
+
+        
+
         table = TTY::Table.new(["Pokedex Number","Name","type(s)","HP stats","Attack stats","Defense stats","SP_Atk stats","SP_Def stats","Speed stats","Generation"], [["#{select_pokemon[:pokedexnumber]}", "#{select_pokemon[:name]}", "#{select_pokemon[:type_1]} #{select_pokemon[:type_2]}","#{select_pokemon[:hp]}","#{select_pokemon[:attack]}","#{select_pokemon[:defense]}","#{select_pokemon[:spatk]}","#{select_pokemon[:spdef]}","#{select_pokemon[:speed]}","#{select_pokemon[:generation]}"]])
         puts table.render(:ascii, alignment: [:center],padding: [0.5,0.5,0.5,0.5])
         
+            
         type_of_pokemon = select_pokemon[:type_1]
         type_of_pokemon2 = select_pokemon[:type_2]
         
@@ -127,6 +148,15 @@ def pokemonTestPokemonName
     user_choice = gets.chomp.to_s.capitalize
 
     select_pokemon = data.select {|hash| hash[:name] == user_choice }[0]
+
+    if select_pokemon.nil? == true 
+        puts "You did not input a name or you spelling is incorrect, please try again (Do not make a string looking at you Glen)"
+        sleep(2)
+        redo
+        user_choice = false
+        p user_choice
+    
+    end
 
 
     table = TTY::Table.new(["Pokedex Number","Name","type(s)","HP stats","Attack stats","Defense stats","SP_Atk stats","SP_Def stats","Speed stats","Generation"], [["#{select_pokemon[:pokedexnumber]}", "#{select_pokemon[:name]}", "#{select_pokemon[:type_1]} #{select_pokemon[:type_2]}","#{select_pokemon[:hp]}","#{select_pokemon[:attack]}","#{select_pokemon[:defense]}","#{select_pokemon[:spatk]}","#{select_pokemon[:spdef]}","#{select_pokemon[:speed]}","#{select_pokemon[:generation]}"]])
