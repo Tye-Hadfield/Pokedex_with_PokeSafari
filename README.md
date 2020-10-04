@@ -30,7 +30,10 @@ Installed by program(Gems)
 
 
 
-### How to install application 
+### How to install application :
+
+#### Copy and paste into your terminal and watch the magic!
+
 
 option 1 - you are just wanting to clone the application below is the Git Command.
 ```
@@ -70,14 +73,14 @@ You must include:
 - 
 - 
 - 
-# Source Control
+# Source Control :
 
 https://github.com/Tye-Hadfield/Pokedex_with_PokeSafari.git
 
 <br>
 
 
-# Software Development Plan 
+# Software Development Plan :
 
 
 
@@ -110,7 +113,7 @@ The target audience for this application is those who enjoy Pokemon and are able
 The target audience may use this application along side playing the early Pokemon games, in the new age Pokemon games we are shown if our attacks are effective against our opposing Pokemon but back in the earlier generations we had to remember what was effective against what. The audience may find fun in the Pokemon Safari with all the random Pokemon that may appear and can really spring excitement if there potential favourite Pokemon appears!
 
 
-# List of features 
+# List of features :
 
 
 ### Pokedex
@@ -127,7 +130,7 @@ The Pokemon Safari is a fun mini game that allows a user to walk through grass a
  
 
 
-# Develop an outline of the user interaction and experience for the application.
+# Develop an outline of the user interaction and experience for the application :
 
 When first entering the Pokedex / Safari application you will be greeted with a heading and four options, these include Pokedex, Safari, Help and exit. The Pokedex option will link you through to the Pokedex search options that allow the user to select whether they want to search via name or number, once the user chooses they will have to enter there respective input they choose. If a user choose to user a number but does not stick within the asked range 1-151 they will have an error pop up for 2 seconds that will instruct them of their wrong input. Name also has error handling to state that you can not enter nothing or incorrectly spell the name of the Pokemon. Once the user has landed on their pokemon they will be asked if they wish to see the type chart for this Pokemon they can choose Yes/No which is brought up via TTY prompt if selecting yes the type(s) for this Pokemon will appear. A search again option appears allowing the user to search again or select no which take them back to the main menu. If Safari is selected the user will be taken to a screen where they begin their journey, right away you are presented with a pokemon and four choices Run,Catch,Menu and check. Run is a function that will just search for another Pokemon, Catch will allow you to attempt to catch the Pokemon with 50/50 odds, Menu will return you to main menu and Check is a way for the user to check their currently caught Pokemon. At the main menu you are presented with a help option to explain further help on the features along with some Command line arguments you can use.
 
