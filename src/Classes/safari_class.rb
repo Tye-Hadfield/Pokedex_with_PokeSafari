@@ -15,7 +15,7 @@ class Safari
     # We are gathering the data for the safari here from the pokemon data csv
 
     prompt = TTY::Prompt.new
-    data_safari = SmarterCSV.process('pokemon.csv', { header_transformations: [:none] })
+    data_safari = SmarterCSV.process('src/pokemon.csv', { header_transformations: [:none] })
 
     return_to_lodge = false
 

@@ -13,8 +13,8 @@ class PokemonSearch
   def pokemonTestPokeDexNumer
     # Pulling in the data needed for the Pokedex from the CSV files
     prompt = TTY::Prompt.new
-    data = SmarterCSV.process('pokemon.csv', { header_transformations: [:none] })
-    types_data = SmarterCSV.process('types.csv', { header_transformations: [:none] })
+    data = SmarterCSV.process('src/pokemon.csv', { header_transformations: [:none] })
+    types_data = SmarterCSV.process('src/types.csv', { header_transformations: [:none] })
 
     user_answer = true
 
@@ -102,8 +102,8 @@ class PokemonSearch
 
   def pokemonTestPokemonName
     prompt = TTY::Prompt.new
-    data = SmarterCSV.process('pokemon.csv', { header_transformations: [:none] })
-    types_data = SmarterCSV.process('types.csv', { header_transformations: [:none] })
+    data = SmarterCSV.process('src/pokemon.csv', { header_transformations: [:none] })
+    types_data = SmarterCSV.process('src/types.csv', { header_transformations: [:none] })
 
     user_answer = true
 
