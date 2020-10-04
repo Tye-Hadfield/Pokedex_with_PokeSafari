@@ -16,7 +16,7 @@ select yn in "Yes" "No"; do
     case $yn in
         Yes ) make install;
                     bundle install   
-                    ruby src/main.rb
+                    ruby main.rb
                             break;;
         No ) exit;;
     esac
